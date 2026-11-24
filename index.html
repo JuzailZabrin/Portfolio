@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Juzail Zabrin | Frontend & Mobile Developer, Sri Lanka</title>
+<meta name="description" content="Juzail Zabrin — frontend and mobile developer and Computer Science student (IIT / University of Westminster) in Colombo, Sri Lanka. React, React Native, Node.js." />
+<meta name="author" content="Juzail Zabrin" />
+<meta name="theme-color" content="#0f1115" />
+<meta property="og:title" content="Juzail Zabrin | Frontend & Mobile Developer" />
+<meta property="og:description" content="I build fast, good-looking web and mobile apps with React, React Native and Node.js." />
+<meta property="og:image" content="Juzail.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#0f1115; --bg-2:#16191f; --card:#1a1d24; --line:#2a2e37;
+  --ink:#f1eee8; --ink-2:#cfcac2; --muted:#8d8a85;
+  --accent:#4f7cff; --accent-2:#7b9cff; --lime:#c8f560; --violet:#8b5cf6;
+  --cream:#efebe4; --cream-ink:#141414; --cream-muted:#8c877f;
+  --display:"Archivo","Arial Black",Impact,sans-serif;
+  --body:"Bricolage Grotesque",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:22px; --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+::selection{background:var(--accent);color:#fff}
+.wrap{width:min(var(--max),100% - 40px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:10px;background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;z-index:200}
+.skip:focus{left:10px}
+:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:8px}
+
+/* ---------- Header ---------- */
+header{position:fixed;inset:0 0 auto;z-index:100;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(15,17,21,.78);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.mono{width:40px;height:40px;border-radius:11px;background:var(--accent);display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:15px;letter-spacing:.5px;color:#fff;box-shadow:0 6px 24px -6px var(--accent)}
+.brand b{display:block;font-size:16px;line-height:1.1}
+.brand small{color:var(--muted);font-size:13px}
+.links{display:flex;align-items:center;gap:30px}
+.links a{font-size:15px;color:var(--ink-2);transition:color .2s}
+.links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:15px;transition:transform .2s,box-shadow .2s,background .2s,color .2s;white-space:nowrap}
+.btn svg{width:17px;height:17px}
+.btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 30px -10px var(--accent)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 40px -10px var(--accent)}
+.btn-ghost{background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.btn-ghost:hover{background:rgba(255,255,255,.09)}
+.links .btn{color:#fff;padding:11px 20px}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);place-items:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:.3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.menu-open .burger span{background:transparent}
+.menu-open .burger span::before{top:0;transform:rotate(45deg)}
+.menu-open .burger span::after{top:0;transform:rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100vh;padding-top:96px;display:flex;flex-direction:column;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 420px at 50% 55%,rgba(79,124,255,.28),transparent 70%),
+  radial-gradient(500px 300px at 85% 20%,rgba(139,92,246,.14),transparent 70%);pointer-events:none}
+.hero-title{font-family:var(--display);font-weight:900;text-transform:uppercase;text-align:center;line-height:.86;letter-spacing:-.02em;
+  font-size:clamp(40px,10.6vw,184px);white-space:nowrap;margin-top:12px;
+  background:linear-gradient(180deg,#fff 30%,rgba(255,255,255,.35));-webkit-background-clip:text;background-clip:text;color:transparent;position:relative;z-index:1}
+.hero-stage{position:relative;flex:1;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:28px;margin-top:-5.2vw}
+.hero-copy{align-self:center;padding-bottom:40px;max-width:330px}
+.hero-copy p{font-size:19px;color:var(--ink-2)}
+.hero-copy p strong{color:var(--ink)}
+.status{display:inline-flex;align-items:center;gap:9px;margin-top:22px;font-size:14px;color:var(--ink-2)}
+.dot{width:9px;height:9px;border-radius:50%;background:#3ddc84;box-shadow:0 0 0 0 rgba(61,220,132,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(61,220,132,0)}100%{box-shadow:0 0 0 0 rgba(61,220,132,0)}}
+.portrait-wrap{position:relative;z-index:2}
+.portrait{position:relative;width:clamp(250px,30vw,400px);aspect-ratio:4/5;border-radius:220px 220px 28px 28px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);box-shadow:0 40px 90px -30px rgba(79,124,255,.55),0 0 0 10px rgba(255,255,255,.03)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(15,17,21,.65))}
+.chip-float{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:rgba(26,29,36,.85);backdrop-filter:blur(10px);border:1px solid var(--line);font-size:13px;font-weight:700;animation:bob 5s ease-in-out infinite}
+.chip-float i{font-style:normal;font-size:16px}
+.chip-a{left:-60px;top:30%}.chip-b{right:-56px;top:52%;animation-delay:-2.5s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.hero-cta{align-self:center;justify-self:end;display:flex;flex-direction:column;align-items:flex-end;gap:12px;padding-bottom:40px}
+.socials-mini{display:flex;gap:8px;margin-top:6px}
+.icon-btn{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--line);background:rgba(255,255,255,.03);transition:.2s}
+.icon-btn:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+.icon-btn svg{width:18px;height:18px}
+
+.marquee{position:relative;z-index:3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg);overflow:hidden;padding:22px 0}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:scroll 32s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink-2);display:flex;align-items:center;gap:56px;white-space:nowrap}
+.marquee span::after{content:"✦";color:var(--accent);font-size:14px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- Section basics ---------- */
+section{position:relative}
+.pad{padding:130px 0}
+.mega{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.02em;text-align:center;font-size:clamp(54px,11vw,170px)}
+/* fill-on-scroll heading: solid part grows as --p goes 0→1 */
+.fill{--p:0;color:transparent;-webkit-text-stroke:1.5px rgba(241,238,232,.35);
+  background:linear-gradient(90deg,var(--ink) 0 calc(var(--p)*100%),transparent calc(var(--p)*100%));-webkit-background-clip:text;background-clip:text}
+.on-cream .fill{-webkit-text-stroke-color:rgba(20,20,20,.3);background:linear-gradient(90deg,var(--cream-ink) 0 calc(var(--p)*100%),transparent calc(var(--p)*100%));-webkit-background-clip:text;background-clip:text}
+.sub{color:var(--muted);text-align:center;max-width:560px;margin:22px auto 0;font-size:18px}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* floating 3D-ish shapes */
+.shape{position:absolute;pointer-events:none;z-index:0;will-change:transform}
+.sphere{width:88px;height:88px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#a9c0ff,#4f7cff 42%,#1d2f86 78%);box-shadow:0 30px 60px -20px rgba(79,124,255,.6)}
+.pill{width:130px;height:56px;border-radius:40px;background:linear-gradient(160deg,#e8ffb0,#c8f560 40%,#6f9a13);box-shadow:0 26px 50px -18px rgba(200,245,96,.45)}
+.ring{width:110px;height:110px;border-radius:50%;border:22px solid #8b5cf6;box-shadow:inset 0 -8px 16px rgba(0,0,0,.35),0 24px 50px -18px rgba(139,92,246,.6);background:transparent}
+.cube{width:70px;height:70px;border-radius:18px;background:linear-gradient(145deg,#ffd27a,#ff8a3d 55%,#b8461a);box-shadow:0 24px 46px -16px rgba(255,138,61,.55)}
+
+/* ---------- About ---------- */
+.about-lead{max-width:930px;margin:56px auto 0;text-align:center;font-size:clamp(22px,2.6vw,34px);line-height:1.35;font-weight:500;position:relative;z-index:1}
+.about-lead .w{opacity:.15;transition:opacity .25s}
+.about-lead .w.lit{opacity:1}
+.about-lead em{font-style:normal;color:var(--accent-2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 60px;margin-top:70px;color:var(--ink-2);position:relative;z-index:1}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:70px;position:relative;z-index:1}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px 24px}
+.stat b{font-family:var(--display);font-size:clamp(38px,4vw,56px);font-weight:900;line-height:1;display:block;color:var(--ink)}
+.stat b sup{font-size:.5em;color:var(--accent)}
+.stat span{color:var(--muted);font-size:15px}
+.timeline{margin-top:80px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;position:relative;z-index:1}
+.tl{position:relative;padding-top:26px;border-top:1px solid var(--line)}
+.tl::before{content:"";position:absolute;top:-6px;left:0;width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(79,124,255,.18)}
+.tl .yr{font-family:var(--display);font-weight:900;font-size:28px;color:var(--accent-2)}
+.tl h4{font-size:16px;margin:6px 0 6px}
+.tl p{font-size:14px;color:var(--muted);line-height:1.5}
+.center-cta{display:flex;justify-content:center;gap:12px;margin-top:64px;flex-wrap:wrap}
+
+/* ---------- Skills (cream panel) ---------- */
+.on-cream{background:var(--cream);color:var(--cream-ink);border-radius:40px;margin:0 14px;overflow:hidden}
+.svc{display:grid;grid-template-columns:120px 1fr 1.1fr;gap:24px;align-items:start;padding:40px 0;border-top:1px solid rgba(20,20,20,.12);transition:padding .3s}
+.svc:last-child{border-bottom:1px solid rgba(20,20,20,.12)}
+.svc .n{font-family:var(--display);font-weight:900;font-size:56px;line-height:.9;color:#c9c3b9;transition:color .3s}
+.svc h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(22px,2.4vw,30px);line-height:1.1;color:#9b958c;transition:color .3s}
+.svc p{color:#5b5750;font-size:17px}
+.svc:hover .n{color:var(--accent)}
+.svc:hover h3{color:var(--cream-ink)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid rgba(20,20,20,.15);color:#4a463f}
+.dark-tags .tag{border-color:var(--line);color:var(--ink-2);background:rgba(255,255,255,.03)}
+.svc-list{margin-top:70px}
+.bar{height:4px;border-radius:4px;background:rgba(20,20,20,.08);margin-top:16px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:4px;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.svc.in .bar i{width:var(--v)}
+
+/* ---------- Process ---------- */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:60px}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 22px;transition:transform .3s,border-color .3s}
+.step:hover{transform:translateY(-6px);border-color:rgba(79,124,255,.5)}
+.step .n{font-family:var(--display);font-weight:900;font-size:34px;color:var(--accent)}
+.step h4{font-family:var(--display);text-transform:uppercase;font-size:17px;margin:10px 0 10px}
+.step p{color:var(--muted);font-size:15px}
+
+/* ---------- Projects (sticky stack) ---------- */
+.stack{margin-top:70px;display:flex;flex-direction:column;gap:28px}
+.proj{position:sticky;top:calc(96px + var(--i)*14px);background:var(--card);border:1px solid var(--line);border-radius:30px;padding:24px;box-shadow:0 -20px 60px -30px rgba(0,0,0,.8)}
+.proj-head{display:flex;align-items:center;gap:20px;padding:4px 8px 22px}
+.proj-head .n{font-family:var(--display);font-weight:900;font-size:40px;line-height:1}
+.proj-head h3{font-family:var(--display);text-transform:uppercase;font-size:20px}
+.proj-head p{color:var(--muted);font-size:15px}
+.proj-head .acts{margin-left:auto;display:flex;gap:8px}
+.proj-head .btn{padding:10px 18px;font-size:14px}
+.badge{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:4px 9px;border-radius:999px;background:rgba(200,245,96,.14);color:var(--lime);margin-left:8px;vertical-align:middle}
+.proj-body{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;min-height:380px}
+.panel{border-radius:20px;overflow:hidden;position:relative;background:var(--bg-2);border:1px solid var(--line)}
+.panel.copy{padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.panel.copy p{color:var(--ink-2)}
+.panel.copy ul{list-style:none;display:grid;gap:8px;color:var(--ink-2);font-size:15px}
+.panel.copy li::before{content:"→ ";color:var(--accent)}
+/* visual tiles */
+.vis{display:grid;place-items:center;padding:28px;min-height:380px}
+.vis-cars{background:radial-gradient(400px 300px at 50% 60%,rgba(79,124,255,.35),transparent 70%),#0b0d12}
+.phone{width:250px;height:510px;border-radius:40px;padding:10px;background:#050608;border:1px solid #2b2f38;box-shadow:0 40px 80px -30px rgba(79,124,255,.7);position:relative;transform:rotate(-4deg)}
+.phone .screen{width:100%;height:100%;border-radius:31px;overflow:hidden;background:#0b0d12 url(assets/car-guy.jpg) top/cover no-repeat;position:relative}
+.phone iframe{position:absolute;top:0;left:0;width:375px;height:735px;border:0;transform:scale(.611);transform-origin:0 0}
+.phone .notch{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:80px;height:22px;border-radius:20px;background:#050608;z-index:2}
+.phone2{position:absolute;right:8%;bottom:10%;transform:rotate(7deg);width:150px;height:300px;opacity:.5;filter:blur(.3px)}
+.vis-code{background:linear-gradient(135deg,#131826,#0b0d12)}
+.window{width:min(100%,470px);border-radius:16px;background:#0d1017;border:1px solid #262b36;box-shadow:0 30px 70px -30px rgba(0,0,0,.9);overflow:hidden}
+.window .bar-top{display:flex;gap:7px;padding:12px 14px;border-bottom:1px solid #222733;background:#11151d}
+.window .bar-top i{width:11px;height:11px;border-radius:50%;background:#ff5f57}
+.window .bar-top i:nth-child(2){background:#febc2e}.window .bar-top i:nth-child(3){background:#28c840}
+.window .bar-top b{margin-left:10px;font-size:12px;color:var(--muted);font-weight:500}
+.window pre{padding:18px 20px;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#c9d1e3;overflow:hidden;white-space:pre}
+.k{color:#c792ea}.s{color:#c3e88d}.f{color:#82aaff}.c{color:#5c6680}.t{color:#ffcb6b}
+.vis-xray{background:radial-gradient(circle at 50% 50%,#1b2233,#07080b 75%)}
+.xray{width:270px;height:310px;border-radius:20px;position:relative;overflow:hidden;background:
+  radial-gradient(ellipse 34% 46% at 32% 52%,rgba(210,220,235,.55),transparent 70%),
+  radial-gradient(ellipse 34% 46% at 68% 52%,rgba(210,220,235,.5),transparent 70%),
+  repeating-linear-gradient(180deg,rgba(255,255,255,.10) 0 6px,transparent 6px 22px),#0a0c10;border:1px solid #2a2f3a}
+.xray::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 66% 38%,rgba(255,60,40,.85),rgba(255,180,0,.55) 18%,rgba(0,200,120,.25) 32%,transparent 48%);mix-blend-mode:screen;animation:pulse 3s ease-in-out infinite}
+.xray::after{content:"";position:absolute;left:50%;top:6%;bottom:6%;width:12px;transform:translateX(-50%);background:linear-gradient(rgba(255,255,255,.35),rgba(255,255,255,.15));border-radius:6px}
+@keyframes pulse{50%{opacity:.6}}
+.xray-tag{position:absolute;bottom:14px;left:14px;right:14px;display:flex;justify-content:space-between;font-size:12px;font-weight:700;padding:8px 12px;border-radius:10px;background:rgba(10,12,16,.8);border:1px solid #2a2f3a;z-index:2}
+.xray-tag span:last-child{color:var(--lime)}
+.vis-shop{background:linear-gradient(135deg,#1a1430,#0b0d12)}
+.vis-home{background:linear-gradient(135deg,#0f2320,#0b0d12)}
+.vis-edu{background:linear-gradient(135deg,#2a1d0f,#0b0d12)}
+.mini-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:min(100%,420px)}
+.mc{background:#141822;border:1px solid #262b36;border-radius:14px;padding:12px}
+.mc .img{height:90px;border-radius:10px;margin-bottom:10px}
+.mc b{display:block;font-size:13px}.mc small{color:var(--muted);font-size:12px}
+.mc .pr{color:var(--accent-2);font-weight:700;font-size:13px}
+
+.more{display:flex;justify-content:center;margin-top:50px}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:860px;margin:60px auto 0}
+.qa{border-top:1px solid var(--line)}
+.qa:last-child{border-bottom:1px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 4px;text-align:left;font-size:19px;font-weight:700}
+.qa button i{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;font-style:normal;transition:transform .3s,background .3s}
+.qa.open button i{transform:rotate(45deg);background:var(--accent);border-color:var(--accent)}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}
+.qa.open .ans{grid-template-rows:1fr}
+.qa .ans>div{overflow:hidden;color:var(--ink-2);padding:0 4px}
+.qa.open .ans>div{padding-bottom:24px}
+
+/* ---------- Contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;margin-top:64px}
+.cbox{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:34px}
+.cbox h3{font-family:var(--display);text-transform:uppercase;font-size:24px;margin-bottom:10px}
+.cbox>p{color:var(--muted)}
+.clist{display:grid;gap:12px;margin-top:26px}
+.citem{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.02);transition:.2s}
+.citem:hover{border-color:rgba(79,124,255,.6);background:rgba(79,124,255,.07)}
+.citem .ic{width:40px;height:40px;border-radius:11px;background:rgba(79,124,255,.15);display:grid;place-items:center;flex:none;color:var(--accent-2)}
+.citem .ic svg{width:18px;height:18px}
+.citem small{display:block;color:var(--muted);font-size:12px}
+.citem b{font-size:15px}
+.citem .copy{margin-left:auto;font-size:12px;font-weight:700;padding:6px 11px;border-radius:999px;border:1px solid var(--line)}
+form{display:grid;gap:14px;margin-top:24px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{font-size:13px;color:var(--muted);display:grid;gap:7px}
+input,select,textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg-2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;outline:none;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{min-height:130px;resize:vertical}
+select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+form .btn{justify-content:center;padding:16px}
+
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line);margin-top:40px;padding:60px 0 34px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot h5{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:8px}
+.foot a{color:var(--ink-2)}.foot a:hover{color:var(--ink)}
+.foot-big{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(48px,12.5vw,190px);line-height:.85;letter-spacing:-.03em;text-align:center;margin-top:60px;color:transparent;-webkit-text-stroke:1px rgba(241,238,232,.16)}
+.copyright{display:flex;justify-content:space-between;color:var(--muted);font-size:14px;margin-top:30px;flex-wrap:wrap;gap:10px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,120px);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;transition:transform .35s;z-index:300}
+.toast.show{transform:translate(-50%,0)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .timeline{grid-template-columns:repeat(2,1fr);gap:30px 16px}
+  .proj-body{grid-template-columns:1fr}
+  .chip-a{left:-30px}.chip-b{right:-30px}
+}
+@media (max-width:860px){
+  .links{position:fixed;inset:74px 0 auto;flex-direction:column;align-items:stretch;gap:0;background:rgba(15,17,21,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:10px 20px 22px;transform:translateY(-120%);transition:transform .35s;z-index:-1}
+  .menu-open .links{transform:none}
+  .links a{padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
+  .links .btn{margin-top:14px;justify-content:center;border:0}
+  .burger{display:grid}
+  .hero-stage{grid-template-columns:1fr;justify-items:center;text-align:center;margin-top:24px;gap:24px}
+  .hero-copy{order:2;padding:0;max-width:520px}
+  .portrait-wrap{order:1}
+  .hero-cta{order:3;align-items:center;justify-self:center;flex-direction:row;flex-wrap:wrap;justify-content:center;padding-bottom:50px}
+  .socials-mini{width:100%;justify-content:center}
+  .about-grid,.contact-grid,.foot{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .svc{grid-template-columns:70px 1fr;gap:10px 18px}
+  .svc .n{font-size:38px}
+  .svc>div:last-child{grid-column:2}
+  .proj-head{flex-wrap:wrap}
+  .proj-head .acts{margin-left:0;width:100%}
+  .pad{padding:96px 0}
+  .on-cream{border-radius:28px;margin:0 8px}
+  .shape{display:none}
+  .proj{position:relative;top:auto}
+}
+@media (max-width:520px){
+  .steps,.timeline{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .chip-float{display:none}
+  .proj{padding:14px;border-radius:24px}
+  .vis{min-height:320px;padding:18px}
+  .phone{transform:scale(.85) rotate(-4deg)}
+  .brand small{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .about-lead .w{opacity:1}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#home" class="brand" aria-label="Juzail Zabrin, home">
+      <span class="mono">JZ</span>
+      <span><b>Juzail Zabrin</b><small>Frontend &amp; mobile developer</small></span>
+    </a>
+    <nav class="links" id="menu" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://juzailzabrin.vercel.app/Juzail%20Zabrin%20CV.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="#contact" class="btn btn-primary">Let's talk</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <h1 class="hero-title" aria-label="Hi, I'm Juzail — Juzail Zabrin, frontend and mobile developer in Sri Lanka">Hi, I'm Juzail</h1>
+  <div class="wrap hero-stage">
+    <div class="hero-copy reveal">
+      <p><strong>Frontend &amp; mobile developer</strong> from Colombo, Sri Lanka. I build fast, good-looking web and mobile apps with React, React Native and Node.js — and I'm studying Computer Science at IIT (University of Westminster).</p>
+      <div class="status"><span class="dot"></span>Open to internships &amp; freelance work</div>
+    </div>
+    <div class="portrait-wrap reveal d1">
+      <div class="portrait"><img src="Juzail.png" alt="Portrait of Juzail Zabrin" onerror="this.onerror=null;this.src='https://juzailzabrin.vercel.app/Juzail.png'" /></div>
+      <div class="chip-float chip-a"><i>⚛️</i>React &amp; React Native</div>
+      <div class="chip-float chip-b"><i>🚗</i>Shipped: Car Guy</div>
+    </div>
+    <div class="hero-cta reveal d2">
+      <a href="#contact" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>Get in touch</a>
+      <a href="#projects" class="btn btn-ghost">See projects</a>
+      <div class="socials-mini">
+        <a class="icon-btn" href="https://github.com/JuzailZabrin" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.42c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/juzailzabrin/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a class="icon-btn" href="https://wa.me/94765811173" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1 15.29-12.2 9.8 9.8 0 0 1 2.89 6.98c0 5.45-4.44 9.85-9.9 9.85zm8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.6 5.94L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.17-3.48-8.4z"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>React</span><span>React Native</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>JavaScript</span><span>Java</span><span>Python</span><span>Figma</span><span>Tailwind</span><span>Git</span><span>Vercel</span><span>Premiere Pro</span>
+      <span>React</span><span>React Native</span><span>TypeScript</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>JavaScript</span><span>Java</span><span>Python</span><span>Figma</span><span>Tailwind</span><span>Git</span><span>Vercel</span><span>Premiere Pro</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="pad">
+  <div class="shape sphere" data-speed="-0.15" style="left:6%;top:180px"></div>
+  <div class="shape pill" data-speed="0.12" style="right:5%;top:300px;transform:rotate(-24deg)"></div>
+  <div class="shape ring" data-speed="-0.08" style="right:7%;bottom:120px"></div>
+  <div class="wrap">
+    <h2 class="mega"><span class="fill">About me</span></h2>
+    <p class="about-lead" id="lead">I'm Juzail Zabrin, a Computer Science student and developer from Colombo who turns ideas into <em>real, working apps</em> — from a car marketplace in your pocket to an AI that explains what it sees in a chest X-ray.</p>
+    <div class="about-grid">
+      <p class="reveal">I started with HTML and CSS, built WordPress sites, and took on freelance frontend work. Today I spend most of my time in React and React Native, with Node.js and MySQL on the backend when a project needs it.</p>
+      <p class="reveal d1">I care about the small stuff: interfaces that feel quick, layouts that work on every screen, and code someone else can pick up. Right now I'm finishing my degree at IIT and building my final-year project on explainable AI for TB screening.</p>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><b data-count="8">0<sup>+</sup></b><span>Projects built</span></div>
+      <div class="stat reveal d1"><b data-count="3">0<sup>+</sup></b><span>Years writing code</span></div>
+      <div class="stat reveal d2"><b data-count="12">0<sup>+</sup></b><span>Tools &amp; technologies</span></div>
+      <div class="stat reveal d3"><b data-count="1">0</b><span>Live mobile app — Car Guy</span></div>
+    </div>
+    <div class="timeline">
+      <div class="tl reveal"><div class="yr">2020</div><h4>Royal College, Colombo 07</h4><p>Completed O/Levels after primary &amp; secondary schooling at Royal.</p></div>
+      <div class="tl reveal d1"><div class="yr">2022</div><h4>Dual Diploma, BCAS</h4><p>English &amp; IT — first steps into computing and the web.</p></div>
+      <div class="tl reveal d2"><div class="yr">2023</div><h4>BSc Computer Science</h4><p>IIT, affiliated with the University of Westminster.</p></div>
+      <div class="tl reveal d3"><div class="yr">2025</div><h4>KyndKart &amp; Property Explorer</h4><p>Cross-platform shopping app and a React property search.</p></div>
+      <div class="tl reveal d4"><div class="yr">2026</div><h4>Car Guy &amp; final-year project</h4><p>Shipped a live car marketplace app; building an explainable TB detector.</p></div>
+    </div>
+    <div class="center-cta reveal">
+      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="https://juzailzabrin.vercel.app/Juzail%20Zabrin%20CV.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download CV</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="pad on-cream">
+  <div class="shape sphere" data-speed="0.1" style="right:9%;top:110px"></div>
+  <div class="shape cube" data-speed="-0.12" style="left:7%;top:42%;transform:rotate(18deg)"></div>
+  <div class="wrap">
+    <h2 class="mega"><span class="fill">What I do</span></h2>
+    <div class="svc-list">
+      <div class="svc reveal"><div class="n">01</div><h3>Frontend development</h3><div><p>Responsive, fast websites and web apps that look right on every screen size.</p><div class="tags"><span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">HTML5 / CSS3</span><span class="tag">TypeScript</span></div><div class="bar"><i style="--v:90%"></i></div></div></div>
+      <div class="svc reveal"><div class="n">02</div><h3>Mobile apps</h3><div><p>Cross-platform apps for iOS and Android from one codebase — like Car Guy and KyndKart.</p><div class="tags"><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">iOS</span><span class="tag">Android</span></div><div class="bar"><i style="--v:85%"></i></div></div></div>
+      <div class="svc reveal"><div class="n">03</div><h3>Backend &amp; APIs</h3><div><p>REST APIs and databases that keep the app's data in order behind the scenes.</p><div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MySQL</span></div><div class="bar"><i style="--v:80%"></i></div></div></div>
+      <div class="svc reveal"><div class="n">04</div><h3>UI / UX design</h3><div><p>Wireframes and clickable prototypes in Figma before a line of code is written.</p><div class="tags"><span class="tag">Figma</span><span class="tag">Design systems</span><span class="tag">Prototyping</span></div><div class="bar"><i style="--v:85%"></i></div></div></div>
+      <div class="svc reveal"><div class="n">05</div><h3>Programming &amp; AI</h3><div><p>Solid OOP foundations in Java, plus Python for machine learning and explainable AI.</p><div class="tags"><span class="tag">Java</span><span class="tag">Python</span><span class="tag">OOP</span><span class="tag">TensorFlow</span></div><div class="bar"><i style="--v:88%"></i></div></div></div>
+      <div class="svc reveal"><div class="n">06</div><h3>Video editing</h3><div><p>Clean edits, motion graphics and short-form content that holds attention.</p><div class="tags"><span class="tag">Premiere Pro</span><span class="tag">After Effects</span><span class="tag">DaVinci Resolve</span></div><div class="bar"><i style="--v:82%"></i></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="pad" id="process">
+  <div class="wrap">
+    <h2 class="mega"><span class="fill">How I work</span></h2>
+    <p class="sub reveal">The same five steps for every project, so you always know what's coming next.</p>
+    <div class="steps">
+      <div class="step reveal"><div class="n">01</div><h4>Understand</h4><p>A quick chat to learn the problem, the users and what "done" looks like.</p></div>
+      <div class="step reveal d1"><div class="n">02</div><h4>Design</h4><p>Wireframes and a Figma prototype you can click through and comment on.</p></div>
+      <div class="step reveal d2"><div class="n">03</div><h4>Build</h4><p>Clean, component-based code shipped in small steps with live previews.</p></div>
+      <div class="step reveal d3"><div class="n">04</div><h4>Test &amp; launch</h4><p>Checked on phones and desktops, then deployed to Vercel or Netlify.</p></div>
+      <div class="step reveal d4"><div class="n">05</div><h4>Improve</h4><p>Feedback, fixes and new features — the app keeps getting better.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="pad" id="projects" style="padding-top:40px">
+  <div class="wrap">
+    <h2 class="mega"><span class="fill">Projects</span></h2>
+    <p class="sub reveal">Things I've designed, built and shipped. Scroll through the stack.</p>
+    <div class="stack">
+
+      <article class="proj" style="--i:0">
+        <div class="proj-head">
+          <div class="n">01</div>
+          <div><h3>Car Guy <span class="badge">Live</span></h3><p>A mobile-first marketplace to discover, match and buy cars in Sri Lanka</p></div>
+          <div class="acts"><a class="btn btn-primary" href="https://car-guy.netlify.app/" target="_blank" rel="noopener">Open live app ↗</a></div>
+        </div>
+        <div class="proj-body">
+          <div class="panel vis vis-cars">
+            <div class="phone"><div class="notch"></div><div class="screen"><iframe src="https://car-guy.netlify.app/" title="Car Guy live app preview" loading="lazy" tabindex="-1"></iframe></div></div>
+          </div>
+          <div class="panel copy">
+            <p>Car Guy is a car-buying app built like a native mobile experience. Browse listings by body type, search by voice, save favourites and get a "Smart Match" score that ranks cars against what you're looking for.</p>
+            <ul><li>Category filters: SUV, sedan, hatchback, hybrid, EV, van</li><li>Smart Match scoring and featured listings</li><li>Search, messages and profile with app-style tab bar</li><li>Prices in LKR, deployed on Netlify</li></ul>
+            <div class="tags dark-tags"><span class="tag">React</span><span class="tag">Mobile-first UI</span><span class="tag">Netlify</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj" style="--i:1">
+        <div class="proj-head">
+          <div class="n">02</div>
+          <div><h3>Explainable TB detection <span class="badge">In progress</span></h3><p>Final-year project — AI that screens chest X-rays and shows why</p></div>
+        </div>
+        <div class="proj-body">
+          <div class="panel vis vis-xray">
+            <div class="xray"><div class="xray-tag"><span>Grad-CAM heatmap</span><span>Refer to doctor</span></div></div>
+          </div>
+          <div class="panel copy">
+            <p>A web app that uses a pretrained deep-learning model to flag possible tuberculosis in chest X-rays — and, unlike most tools, shows a Grad-CAM heatmap so doctors can see exactly which area the model looked at.</p>
+            <ul><li>Transfer learning (ResNet50 / DenseNet121)</li><li>Visible Grad-CAM explanation layer</li><li>Confidence-based doctor-referral flag</li><li>Cross-dataset testing on TBX11K</li></ul>
+            <div class="tags dark-tags"><span class="tag">Python</span><span class="tag">TensorFlow / Keras</span><span class="tag">Grad-CAM</span><span class="tag">Streamlit</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj" style="--i:2">
+        <div class="proj-head">
+          <div class="n">03</div>
+          <div><h3>KyndKart</h3><p>Cross-platform e-commerce app with a Node.js backend</p></div>
+          <div class="acts"><a class="btn btn-ghost" href="https://github.com/JuzailZabrin/kynd-kart" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+        <div class="proj-body">
+          <div class="panel vis vis-shop">
+            <div class="mini-cards">
+              <div class="mc"><div class="img" style="background:linear-gradient(135deg,#8b5cf6,#4f7cff)"></div><b>Wireless buds</b><span class="pr">LKR 8,900</span></div>
+              <div class="mc"><div class="img" style="background:linear-gradient(135deg,#c8f560,#2f9e6b)"></div><b>Canvas tote</b><span class="pr">LKR 2,450</span></div>
+              <div class="mc"><div class="img" style="background:linear-gradient(135deg,#ff8a3d,#e0446a)"></div><b>Desk lamp</b><span class="pr">LKR 5,200</span></div>
+              <div class="mc"><div class="img" style="background:linear-gradient(135deg,#7b9cff,#1d2f86)"></div><b>Smart watch</b><span class="pr">LKR 14,500</span></div>
+            </div>
+          </div>
+          <div class="panel copy">
+            <p>A shopping app for iOS and Android built with React Native and TypeScript, talking to an Express + MySQL API, with Git-based workflow and automated deployment on Vercel.</p>
+            <ul><li>Product listings, cart and checkout flow</li><li>REST API with Node.js and Express</li><li>MySQL database</li></ul>
+            <div class="tags dark-tags"><span class="tag">React Native</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">MySQL</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj" style="--i:3">
+        <div class="proj-head">
+          <div class="n">04</div>
+          <div><h3>Responsive Property Explorer</h3><p>React SPA to search homes by type, price, bedrooms, date and area</p></div>
+          <div class="acts"><a class="btn btn-ghost" href="https://github.com/JuzailZabrin/Responsive-Property-Explorer" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+        <div class="proj-body">
+          <div class="panel vis vis-home">
+            <div class="window"><div class="bar-top"><i></i><i></i><i></i><b>SearchForm.jsx</b></div>
+<pre><span class="k">const</span> results = properties.<span class="f">filter</span>(p =>
+  (type === <span class="s">'any'</span> || p.type === type) &amp;&amp;
+  p.price &gt;= minPrice &amp;&amp; p.price &lt;= maxPrice &amp;&amp;
+  p.bedrooms &gt;= minBeds &amp;&amp;
+  p.location.<span class="f">includes</span>(postcode)
+);
+<span class="c">// drag a card to ♥ to save it</span>
+<span class="f">onDrop</span>={() =&gt; <span class="f">addFavourite</span>(<span class="t">property</span>)}</pre></div>
+          </div>
+          <div class="panel copy">
+            <p>A single-page React app for exploring property listings, with a multi-filter search, image galleries, tabbed detail pages and a drag-and-drop favourites list saved in local storage.</p>
+            <ul><li>Dynamic multi-criteria search</li><li>Drag-and-drop favourites</li><li>JSON data, galleries and tabs</li></ul>
+            <div class="tags dark-tags"><span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">JSON</span><span class="tag">CSS</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj" style="--i:4">
+        <div class="proj-head">
+          <div class="n">05</div>
+          <div><h3>EduLink</h3><p>Website for a bookkeeping, payroll and education-support business</p></div>
+          <div class="acts"><a class="btn btn-ghost" href="https://github.com/JuzailZabrin/Edulink" target="_blank" rel="noopener">GitHub ↗</a></div>
+        </div>
+        <div class="proj-body">
+          <div class="panel vis vis-edu">
+            <div class="window"><div class="bar-top"><i></i><i></i><i></i><b>edulink — services</b></div>
+<pre><span class="c">&lt;!-- services --&gt;</span>
+<span class="k">&lt;section</span> <span class="f">class</span>=<span class="s">"services"</span><span class="k">&gt;</span>
+  <span class="k">&lt;h2&gt;</span>Bookkeeping · Payroll · Tutoring<span class="k">&lt;/h2&gt;</span>
+  <span class="k">&lt;div</span> <span class="f">class</span>=<span class="s">"grid"</span><span class="k">&gt;</span>…<span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/section&gt;</span></pre></div>
+          </div>
+          <div class="panel copy">
+            <p>A professional, fully responsive business site that presents EduLink's services and mission clearly, built with modern HTML and CSS.</p>
+            <ul><li>Responsive layout for phone, tablet and desktop</li><li>Clear service sections and calls to action</li></ul>
+            <div class="tags dark-tags"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Responsive design</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj" style="--i:5">
+        <div class="proj-head">
+          <div class="n">06</div>
+          <div><h3>Java systems</h3><p>Student Activity Management &amp; Ticketing — OOP console apps</p></div>
+          <div class="acts"><a class="btn btn-ghost" href="https://github.com/JuzailZabrin/Student-Activity-Management-System" target="_blank" rel="noopener">Student system ↗</a><a class="btn btn-ghost" href="https://github.com/JuzailZabrin/Ticketing-System" target="_blank" rel="noopener">Ticketing ↗</a></div>
+        </div>
+        <div class="proj-body">
+          <div class="panel vis vis-code">
+            <div class="window"><div class="bar-top"><i></i><i></i><i></i><b>Student.java</b></div>
+<pre><span class="k">public class</span> <span class="t">Student</span> {
+  <span class="k">private</span> <span class="t">String</span> id, name;
+  <span class="k">private</span> <span class="t">Module</span>[] modules = <span class="k">new</span> <span class="t">Module</span>[<span class="s">3</span>];
+
+  <span class="k">public</span> <span class="t">String</span> <span class="f">getGrade</span>() {
+    <span class="k">double</span> avg = <span class="f">average</span>();
+    <span class="k">return</span> avg &gt;= <span class="s">80</span> ? <span class="s">"Distinction"</span> : …
+  }
+}</pre></div>
+          </div>
+          <div class="panel copy">
+            <p>Two Java console applications focused on clean object-oriented design: one manages up to 100 student records with module marks, file storage and grading reports; the other models a ticketing workflow.</p>
+            <ul><li>Classes, encapsulation and arrays</li><li>File read/write for saved records</li><li>Summary and grading reports</li></ul>
+            <div class="tags dark-tags"><span class="tag">Java</span><span class="tag">OOP</span><span class="tag">Data management</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="more reveal"><a class="btn btn-ghost" href="https://github.com/JuzailZabrin?tab=repositories" target="_blank" rel="noopener">See all repositories on GitHub ↗</a></div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="pad" id="faq" style="padding-top:40px">
+  <div class="wrap">
+    <h2 class="mega" style="font-size:clamp(44px,8vw,120px)"><span class="fill">Questions?</span></h2>
+    <div class="faq">
+      <div class="qa reveal"><button aria-expanded="false">Are you available for internships?<i>+</i></button><div class="ans"><div>Yes — I'm actively looking for frontend, mobile or full-stack internships in Sri Lanka or remote. You can grab my CV from the top of the page.</div></div></div>
+      <div class="qa reveal"><button aria-expanded="false">Do you take freelance projects?<i>+</i></button><div class="ans"><div>Yes. Websites, landing pages, React web apps and React Native mobile apps. Send a short message about what you need and I'll reply with a plan and timeline.</div></div></div>
+      <div class="qa reveal"><button aria-expanded="false">What's your main tech stack?<i>+</i></button><div class="ans"><div>React and React Native on the front, Node.js, Express and MySQL on the back, Figma for design, and Vercel or Netlify for deployment. I also use Java and Python for university and AI work.</div></div></div>
+      <div class="qa reveal"><button aria-expanded="false">Can you work with clients outside Sri Lanka?<i>+</i></button><div class="ans"><div>Of course. I work remotely over WhatsApp, email and video calls, and I'm comfortable with Git-based workflows and shared Figma files.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="pad" id="contact" style="padding-top:40px">
+  <div class="shape pill" data-speed="-0.1" style="left:4%;top:120px;transform:rotate(30deg)"></div>
+  <div class="shape sphere" data-speed="0.14" style="right:6%;top:60px"></div>
+  <div class="wrap">
+    <h2 class="mega"><span class="fill">Let's talk</span></h2>
+    <p class="sub reveal">Got an internship, a project or just an idea? My inbox is open.</p>
+    <div class="contact-grid">
+      <div class="cbox reveal">
+        <h3>Reach me directly</h3>
+        <p>I usually reply within a day.</p>
+        <div class="clist">
+          <div class="citem"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span><a href="mailto:juzailzabrin@gmail.com"><small>Email</small><b>juzailzabrin@gmail.com</b></a><button class="copy" data-copy="juzailzabrin@gmail.com">Copy</button></div>
+          <a class="citem" href="https://wa.me/94765811173" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg></span><span><small>WhatsApp</small><b>+94 76 581 1173</b></span></a>
+          <a class="citem" href="https://www.linkedin.com/in/juzailzabrin/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 10v7"/></svg></span><span><small>LinkedIn</small><b>in/juzailzabrin</b></span></a>
+          <a class="citem" href="https://github.com/JuzailZabrin" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-4 1.5-4-2-6-2.5M15 22v-3.5a3 3 0 0 0-.9-2.4c3-.3 6.1-1.5 6.1-6.6a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6s-1.1-.3-3.7 1.4a12.6 12.6 0 0 0-6.6 0C5.8 1.9 4.7 2.2 4.7 2.2a4.8 4.8 0 0 0-.1 3.6A5.2 5.2 0 0 0 3.2 9.4c0 5.1 3.1 6.3 6.1 6.6a3 3 0 0 0-.9 2.4V22"/></svg></span><span><small>GitHub</small><b>JuzailZabrin</b></span></a>
+          <div class="citem"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span><small>Based in</small><b>Dehiwala, Colombo · Sri Lanka</b></span></div>
+        </div>
+      </div>
+      <div class="cbox reveal d1">
+        <h3>Send me a message</h3>
+        <p>Recruiters and clients: tell me what you have in mind and it'll open your email app ready to send to me.</p>
+        <form id="contactForm">
+          <div class="row2">
+            <label>Your name<input name="name" required autocomplete="name" placeholder="Jane Perera" /></label>
+            <label>Your email<input name="email" type="email" required autocomplete="email" placeholder="you@company.com" /></label>
+          </div>
+          <label>Why are you contacting me?
+            <select name="topic">
+              <option>I want to hire you (internship / job)</option>
+              <option>I need a website or web app</option>
+              <option>I need a mobile app</option>
+              <option>I need UI/UX design</option>
+              <option>I need video editing</option>
+              <option>Something else</option>
+            </select>
+          </label>
+          <label>Message<textarea name="message" required placeholder="e.g. We have a frontend intern role at our company… / I need a website for my shop…"></textarea></label>
+          <button class="btn btn-primary" type="submit">Send to Juzail →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a href="#home" class="brand"><span class="mono">JZ</span><span><b>Juzail Zabrin</b><small>Frontend &amp; mobile developer</small></span></a>
+        <p style="color:var(--muted);margin-top:16px;max-width:340px">Building web and mobile apps from Colombo, Sri Lanka. Open to internships and freelance work.</p>
+      </div>
+      <div><h5>Menu</h5><ul><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li><li><a href="https://juzailzabrin.vercel.app/Juzail%20Zabrin%20CV.pdf" target="_blank" rel="noopener">Resume (PDF)</a></li></ul></div>
+      <div><h5>Elsewhere</h5><ul><li><a href="https://github.com/JuzailZabrin" target="_blank" rel="noopener">GitHub</a></li><li><a href="https://www.linkedin.com/in/juzailzabrin/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://wa.me/94765811173" target="_blank" rel="noopener">WhatsApp</a></li><li><a href="mailto:juzailzabrin@gmail.com">Email</a></li></ul></div>
+    </div>
+    <div class="foot-big" aria-hidden="true">Juzail Zabrin</div>
+    <div class="copyright"><span>© <span id="yr">2026</span> Juzail Zabrin</span><span>Designed &amp; built in Colombo</span></div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status" aria-live="polite">Copied!</div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  $('#yr').textContent = new Date().getFullYear();
+
+  // header + mobile menu
+  const header = $('header'), burger = $('#burger');
+  const onScrollHeader = () => header.classList.toggle('scrolled', scrollY > 20);
+  burger.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  $$('#menu a').forEach(a => a.addEventListener('click', () => { document.body.classList.remove('menu-open'); burger.setAttribute('aria-expanded', false); }));
+
+  // reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+  $$('.reveal, .svc').forEach(el => io.observe(el));
+
+  // count-up stats
+  const cio = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return; cio.unobserve(e.target);
+    const el = e.target, end = +el.dataset.count, sup = el.querySelector('sup'), t0 = performance.now();
+    const tick = t => { const p = Math.min((t - t0) / 1200, 1); el.firstChild.nodeValue = Math.round(end * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
+    reduce ? (el.firstChild.nodeValue = end) : requestAnimationFrame(tick);
+  }), { threshold: .6 });
+  $$('[data-count]').forEach(el => cio.observe(el));
+
+  // split lead paragraph into words for scroll highlight
+  const lead = $('#lead');
+  const wrapWords = node => [...node.childNodes].forEach(n => {
+    if (n.nodeType === 3) {
+      const frag = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(w => { if (!w.trim()) frag.append(w); else { const s = document.createElement('span'); s.className = 'w'; s.textContent = w; frag.append(s); } });
+      n.replaceWith(frag);
+    } else wrapWords(n);
+  });
+  wrapWords(lead);
+  const words = $$('.w', lead);
+
+  const fills = $$('.fill'), shapes = $$('.shape');
+  const frame = () => {
+    const vh = innerHeight;
+    onScrollHeader();
+    fills.forEach(f => { const r = f.getBoundingClientRect(); const p = Math.min(Math.max((vh * .9 - r.top) / (vh * .55), 0), 1); f.style.setProperty('--p', reduce ? 1 : p.toFixed(3)); });
+    if (!reduce) {
+      const r = lead.getBoundingClientRect(); const p = Math.min(Math.max((vh * .85 - r.top) / (r.height + vh * .35), 0), 1);
+      const n = Math.round(p * words.length); words.forEach((w, i) => w.classList.toggle('lit', i < n));
+      shapes.forEach(s => { const b = s.parentElement.getBoundingClientRect(); const base = s.dataset.base || (s.dataset.base = getComputedStyle(s).transform === 'none' ? '' : getComputedStyle(s).transform); s.style.transform = `translateY(${(b.top) * s.dataset.speed}px) ${base}`; });
+    }
+  };
+  let ticking = false;
+  addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(() => { frame(); ticking = false; }); ticking = true; } }, { passive: true });
+  addEventListener('resize', frame); frame();
+
+  // FAQ
+  $$('.qa button').forEach(b => b.addEventListener('click', () => { const q = b.parentElement, open = q.classList.toggle('open'); b.setAttribute('aria-expanded', open); }));
+
+  // copy email
+  const toast = $('#toast');
+  $$('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied!'; } catch { b.textContent = 'Press Ctrl+C'; }
+    toast.classList.add('show'); setTimeout(() => { toast.classList.remove('show'); b.textContent = 'Copy'; }, 1800);
+  }));
+
+  // contact form -> mailto
+  $('#contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const d = new FormData(e.target);
+    const subject = `${d.get('topic')} — from ${d.get('name')}`;
+    const body = `${d.get('message')}\n\n— ${d.get('name')}\n${d.get('email')}`;
+    location.href = `mailto:juzailzabrin@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+})();
+</script>
+</body>
+</html>
